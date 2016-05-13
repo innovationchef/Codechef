@@ -11,7 +11,7 @@ for i in range(0, testcases):
     summation = []
     j = 0
     while sum <= N : 
-	    sum = sum + j
+	    sum = (j*(j+1))/2
 	    summation.append(sum) 
 	    j = j+1 
     print(j-2)
