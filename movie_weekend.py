@@ -7,10 +7,11 @@ def getmin(listing, rate_list):
     while k<len(listing):
         if listing[x] == listing[x-k]:
             if cmp(rate_list[x], rate_list[x-k]) > 0:
-                if rate_list[maxm]>=rate_list[x]:
-                    continue
+                if rate_list[maxm]>rate_list[x-k]:
+                    k = k
                 else:
                     maxm = -1
+                    # continue
             elif cmp(rate_list[x], rate_list[x-k]) < 0:
                 temp_max = x-k
                 old_difference = difference
@@ -21,10 +22,11 @@ def getmin(listing, rate_list):
                     maxm = temp_max
             elif cmp(rate_list[x], rate_list[x-k]) == 0:
                 maxm = x-k
+                # continue
         else :
             return(len(listing) + maxm + 1)
         k += 1
-        return(len(listing) + maxm + 1)
+    return(len(listing) + maxm + 1)
 
     # for k in range(0, len(listing)):
             
