@@ -49,7 +49,23 @@ for i in range(0, testcases):
         product = length_list[j]*rating_list[j]
         product_list.append(product)
         j += 1
-    print(getmin(product_list, rating_list))
+
+
+    index_pos = []
+    max_prod = max(product_list)
+    for k in range(0,n):
+        if(product_list[k]==max_prod):
+            index_pos.append(k)
+
+    new_list = []
+    new_rating_list = []
+    for l in range(0,len(index_pos)):
+        new_list.append(product_list[index_pos[l]])
+        new_rating_list.append(rating_list[index_pos[l]])
+        
+    # for g in new_list : print g    
+    m = getmin(new_list, new_rating_list)
+    print(index_pos[m])
     # for p in product_list: print p
 
 
