@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-N = 0
 summation = 0
 initialProduct = 0
 endProduct = 0
@@ -8,40 +6,36 @@ def addToEnd(inputList, x):
     y = x 
 
     testList1 = inputList[:]
+    testList2 = inputList[:]
+
     global endProduct
     product1 = testList1[-1]*numbers[x]
-    product2 = testList1[0]*numbers[x]
-    endProduct += product1 + product2
+    endProduct += product1 * pow(2, N-x)
     testList1.append(numbers[x])
     x = x+1
     if x == N:
-    	endProduct -= (product1 + product2)/2
+        x=x
     if x<N : 
         addToEnd(testList1, x)
     
-    testList2 = inputList[:]
-    global initialProduct 
-    product1 = testList2[-1]*numbers[y]
     product2 = testList2[0]*numbers[y]
-    initialProduct += product2 + product1
+    endProduct += product2 * pow(2, N-y)
     testList2.insert(0, numbers[y])
     y = y+1
     if y == N : 
-    	initialProduct -= (product2 + product1)/2
+        y=y
     if y<N : 
-    	addToEnd(testList2, y)
+        addToEnd(testList2, y)
 
-    return(endProduct+initialProduct) 
+    # return(endProduct+initialProduct) 
 
-testcases = input("Enter no. of testcases --->  ")
+testcases = int(raw_input())
 for i in range(0, testcases):
-    N = input("input the no. of numbers --->")
-    numbers = []
-    for j in range(0, N):
-    	numbers.append(input("Enter numbers ---> "))
+    N = int(raw_input())
+    numbers = map(int,raw_input().split(" "))
     testList = [numbers[0]]
-    
-    print(addToEnd(testList, 1))
+    addToEnd(testList, 1)
+    print(endProduct/2)
     #print(endProduct+initialProduct)
     
     
