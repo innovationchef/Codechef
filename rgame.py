@@ -30,8 +30,12 @@ def addToEnd(inputList, x):
     # return(endProduct+initialProduct) 
 
 testcases = int(raw_input())
+if(testcases<1 or testcases>10):
+    exit()
 for i in range(0, testcases):
     N = int(raw_input())
+    if(N<1 or N>100000):
+        exit()
     numbers = map(int,raw_input().split(" "))
     testList = [numbers[0]]
     addToEnd(testList, 1)
